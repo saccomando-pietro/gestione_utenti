@@ -5,9 +5,6 @@ function App() {
 
   return (
     <div className={styles.container}>
-      {/* <div className="button">
-        <button type="submit">Entra</button>
-      </div> */}
       <UserPage />
     </div>
   );
