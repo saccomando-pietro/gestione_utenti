@@ -1,0 +1,78 @@
+/* UserPage.css */
+
+body {
+  font-family: Arial, sans-serif;
+  background-color: #f9f9f9;
+  padding: 20px;
+}
+
+h1 {
+  font-size: 24px;
+  margin-bottom: 20px;
+}
+
+h2 {
+  font-size: 20px;
+  margin-bottom: 10px;
+  margin-top: 30px;
+}
+
+h3 {
+  margin-top: 20px;
+  font-size: 16px;
+}
+
+input {
+  margin: 5px 5px 5px 0;
+  padding: 6px 10px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+button {
+  margin: 5px 5px 5px 0;
+  padding: 6px 12px;
+  background-color: #1976d2;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+button:hover {
+  background-color: #125ca1;
+}
+
+ul {
+  padding-left: 20px;
+}
+
+li {
+  margin-bottom: 10px;
+  list-style-type: disc;
+}
+
+button + button {
+  margin-left: 10px;
+}
+
+.selected-user,
+.add-user {
+  margin-top: 20px;
+  padding: 15px;
+  background-color: #ffffff;
+  border: 1px solid #ddd;
+  border-radius: 6px;
+}
+
+.user-list {
+  margin-top: 20px;
+}
+
+.user-list button{
+  margin-left: 2vw;
+}
+
+.container{
+  border:2px solid red;
+}
