@@ -1,6 +1,6 @@
 const UpdateUserProfile = () => {
   return (
-    <div className="add-user">
+    <div className="update-user-profile">
       <h2>Aggiorna profile utente</h2>
       <select name="profile" id="profile" required>
         <option value="" disabled selected>

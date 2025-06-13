@@ -1,6 +1,6 @@
 const UpdateUser = () => {
   return (
-    <div className="add-user">
+    <div className="update-user">
       <h2>Aggiorna utente</h2>
       <input type="text" name="nome" id="nome" placeholder="nome" />
       <input type="text" name="cognome" id="cognome" placeholder="cognome" />
