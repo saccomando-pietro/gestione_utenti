@@ -67,7 +67,7 @@ h2 {
 }
 
 .user-list {
-  max-width: 500px;
+  max-width: fit-content;
   background: #fff;
   padding: 1.5rem;
   border-radius: 12px;
@@ -90,11 +90,18 @@ h2 {
   display: flex;
   flex-direction: row;
   align-items: center;
-  justify-content: center;
+  justify-content: space-between;
+  width: 100%;
 }
 
 .user-row p {
-  width: 10rem;
+  width: auto;
+}
+
+.user-row-btn {
+  margin-left: auto;
+  display: flex;
+  /* gap: 0.2rem; */
 }
 
 .user-row button {
@@ -106,13 +113,13 @@ h2 {
   font-size: 0.9rem;
 }
 
-.user-row button:first-of-type {
+.modBtn {
   background-color: white;
   color: blue;
   font-weight: bold;
 }
 
-.user-row button:last-of-type {
+.dltBtn {
   background-color: white;
   color: red;
   font-weight: bold;

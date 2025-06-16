@@ -21,9 +21,8 @@ const UserList = (props) => {
       console.error("Errore:", error);
     }
   };
-  
-  const deleteUser = async (user) => {
 
+  const deleteUser = async (user) => {
     try {
       await fetch(`${props.url}/${user.id}`, {
         method: "DELETE",
@@ -31,9 +30,8 @@ const UserList = (props) => {
     } catch (error) {
       console.error("Errore: ", error);
     }
-    getUsers()
+    getUsers();
   };
-
 
   return (
     <>
@@ -41,11 +39,16 @@ const UserList = (props) => {
         {users.map((user, index) => (
           <div className="user-row" key={index}>
             <p>
-              {user.nome} {user.cognome}
+              {user.nome} {user.cognome} -- {user.mail} {user.profilo}
             </p>
-            <button onClick={() => setSelectedUser(user)}>Modifica</button>
-            <button onClick={() => deleteUser(user)}>Elimina</button>
-
+            <div className="user-row-btn">
+              <button className="modBtn" onClick={() => setSelectedUser(user)}>
+                Modifica
+              </button>
+              <button className="dltBtn" onClick={() => deleteUser(user)}>
+                Elimina
+              </button>
+            </div>
           </div>
         ))}
       </div>
@@ -54,8 +57,8 @@ const UserList = (props) => {
         <>
           <UpdateUser
             user={selectedUser}
-            url = {props.url}
-            getUsers = {refreshUsers}
+            url={props.url}
+            getUsers={refreshUsers}
           />
         </>
       )}
