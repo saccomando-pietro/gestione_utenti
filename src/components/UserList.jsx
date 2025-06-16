@@ -1,6 +1,5 @@
 import { useEffect, useState } from "react";
 import UpdateUser from "./UpdateUser";
-import UpdateUserProfile from "./UpdateUserProfile";
 
 const UserList = (props) => {
   const [users, setUsers] = useState([]);
@@ -57,9 +56,6 @@ const UserList = (props) => {
             user={selectedUser}
             url = {props.url}
             getUsers = {refreshUsers}
-          />
-          <UpdateUserProfile
-            user={selectedUser}
           />
         </>
       )}

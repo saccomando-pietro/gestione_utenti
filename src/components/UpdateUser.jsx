@@ -40,7 +40,8 @@ const UpdateUser = (props) => {
     <div className="update-user">
       <h2>Aggiorna utente</h2>
       <form onSubmit={updateUser}>
-        <input
+        <div className="update-user-form">
+          <input
           type="text"
           name="nome"
           id="nome"
@@ -86,7 +87,8 @@ const UpdateUser = (props) => {
           value={orarioGiornaliero}
           onChange={(e) => setOrario(e.target.value)}
         />
-        <button type="submit">Aggiorna</button>
+        </div>
+        <button className="updateBtn" type="submit">Aggiorna</button>
       </form>
     </div>
   );

@@ -122,3 +122,50 @@ h2 {
   opacity: 0.85;
   text-decoration: underline;
 }
+
+.update-user {
+  background-color: #fff;
+  max-width: 60vw;
+  padding: 1rem;
+  border-radius: 12px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+.update-user-form {
+  display: grid;
+  grid-template-columns: repeat(3, auto);
+  gap: 10px;
+}
+
+.update-user-form input,
+.update-user-form select {
+  padding: 10px;
+  font-size: 1rem;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  transition: border-color 0.2s ease;
+}
+
+.update-user-form input:focus,
+.update-user-form select:focus {
+  border-color: #007bff;
+  outline: none;
+}
+
+.updateBtn {
+  background-color: green;
+  color: white;
+  font-weight: bold;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  text-transform: uppercase;
+  margin-top: 1rem;
+}
+
+.updateBtn:hover {
+  background-color: forestgreen;
+}

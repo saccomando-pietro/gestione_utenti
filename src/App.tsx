@@ -1,12 +1,14 @@
+import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import UserPage from './components/UserPage';
 import './App.css';
 
 function App() {
-
   return (
-    <div>
-      <UserPage />
-    </div>
+    <BrowserRouter>
+      <Routes>
+        <Route path="/" element={<UserPage />} />
+      </Routes>
+    </BrowserRouter>
   );
 }
 
