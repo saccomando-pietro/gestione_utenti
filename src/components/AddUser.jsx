@@ -18,7 +18,6 @@ const AddUser = (props) => {
         },
         body: JSON.stringify(item),
       });
-
     } catch (error) {
       console.error("Errore:", error);
     }
@@ -27,7 +26,7 @@ const AddUser = (props) => {
   return (
     <div className="add-user">
       <h2>Aggiungi utente</h2>
-      <form>
+      <form onSubmit={addUser}>
         <div className="add-user-form">
           <input
             type="text"
@@ -76,7 +75,7 @@ const AddUser = (props) => {
             onChange={(e) => setOrario(e.target.value)}
           />
         </div>
-        <button className="addBtn" type="submit" onClick={addUser}>
+        <button className="addBtn" type="submit">
           Aggiungi
         </button>
       </form>

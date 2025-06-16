@@ -1,15 +1,15 @@
 import { useEffect, useState } from "react";
-import UpdateUser from "./UpdateUser";
+import { useNavigate } from "react-router-dom";
 
 const UserList = (props) => {
   const [users, setUsers] = useState([]);
-  const [selectedUser, setSelectedUser] = useState(null);
-  const refreshUsers = () => getUsers();
+  const navigate = useNavigate();
 
   useEffect(() => {
     getUsers();
   }, []);
 
+  
   const getUsers = async () => {
     try {
       const response = await fetch(props.url);
@@ -37,12 +37,17 @@ const UserList = (props) => {
     <>
       <div className="user-list">
         {users.map((user, index) => (
-          <div className="user-row" key={index}>
+          <div className="user-card" key={index}>
+            <h3>
+              {user.nome} {user.cognome}
+            </h3>
             <p>
-              {user.nome} {user.cognome} -- {user.mail} {user.profilo}
+              <strong>Email:</strong> {user.mail}
+              <br />
+              <strong>Profilo:</strong> {user.profilo}
             </p>
             <div className="user-row-btn">
-              <button className="modBtn" onClick={() => setSelectedUser(user)}>
+              <button className="modBtn" onClick={() => navigate(`/users/update/${user.id}`)}>
                 Modifica
               </button>
               <button className="dltBtn" onClick={() => deleteUser(user)}>
@@ -53,15 +58,6 @@ const UserList = (props) => {
         ))}
       </div>
 
-      {selectedUser && (
-        <>
-          <UpdateUser
-            user={selectedUser}
-            url={props.url}
-            getUsers={refreshUsers}
-          />
-        </>
-      )}
     </>
   );
 };
