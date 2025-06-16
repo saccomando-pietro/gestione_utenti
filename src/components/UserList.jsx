@@ -5,6 +5,7 @@ import UpdateUserProfile from "./UpdateUserProfile";
 const UserList = (props) => {
   const [users, setUsers] = useState([]);
   const [selectedUser, setSelectedUser] = useState(null);
+  const refreshUsers = () => getUsers();
 
   useEffect(() => {
     getUsers();
@@ -21,6 +22,19 @@ const UserList = (props) => {
       console.error("Errore:", error);
     }
   };
+  
+  const deleteUser = async (user) => {
+
+    try {
+      await fetch(`${props.url}/${user.id}`, {
+        method: "DELETE",
+      });
+    } catch (error) {
+      console.error("Errore: ", error);
+    }
+    getUsers()
+  };
+
 
   return (
     <>
@@ -31,7 +45,8 @@ const UserList = (props) => {
               {user.nome} {user.cognome}
             </p>
             <button onClick={() => setSelectedUser(user)}>Modifica</button>
-            <button>Elimina</button>
+            <button onClick={() => deleteUser(user)}>Elimina</button>
+
           </div>
         ))}
       </div>
@@ -40,11 +55,11 @@ const UserList = (props) => {
         <>
           <UpdateUser
             user={selectedUser}
-            onClose={() => setSelectedUser(null)}
+            url = {props.url}
+            getUsers = {refreshUsers}
           />
           <UpdateUserProfile
             user={selectedUser}
-            onClose={() => setSelectedUser(null)}
           />
         </>
       )}
