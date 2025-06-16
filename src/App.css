@@ -1,12 +1,15 @@
 body {
   font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
   background-color: #f4f6f8;
-  margin: 0;
-  padding: 2rem;
   color: #333;
 }
-
+.lista-entita{
+  list-style-type: none;
+  cursor: pointer;
+}
 .main-container {
+  margin: 0;
+  padding: 2rem;
   display: flex;
   flex-direction: column;
   gap: 2rem;
