@@ -1,35 +1,60 @@
-import { useState } from "react";
-import { useNavigate } from "react-router-dom";
-const AddUser = (props) => {
+import { useEffect, useState } from "react";
+import { useNavigate, useParams } from "react-router-dom";
+
+const UpdateUser = (props) => {
   const [nome, setNome] = useState("");
   const [cognome, setCognome] = useState("");
   const [mail, setMail] = useState("");
   const [profilo, setProfilo] = useState("");
   const [orarioGiornaliero, setOrario] = useState("");
+  const { id } = useParams();
+  const navigate = useNavigate();
 
-  const addUser = async (event) => {
+  useEffect(() => {
+    getUser();
+  }, []);
+
+
+  const getUser = async () =>{
+    try{
+      const response = await fetch(`${props.url}/${id}`);
+      const data = await response.json();
+      if(data){
+        setNome(data.nome)
+        setCognome(data.cognome)
+        setMail(data.mail)
+        setProfilo(data.profilo)
+        setOrario(data.orarioGiornaliero)
+      }
+
+    }catch(error){
+      console.error("Errore: ", error)
+    }
+  }
+
+  const updateUser = async (event) => {
     event.preventDefault();
-    window.location.reload();
+    navigate("/users")
     let item = { nome, cognome, mail, profilo, orarioGiornaliero };
     try {
-      await fetch(props.url, {
-        method: "POST",
+      await fetch(`${props.url}/${id}`, {
+        method: "PUT",
         headers: {
           "Content-Type": "application/json",
-          Accept: "application/json",
         },
         body: JSON.stringify(item),
       });
     } catch (error) {
       console.error("Errore:", error);
     }
-  };
+  }; 
+  
 
   return (
-    <div className="add-user">
-      <h2>Aggiungi utente</h2>
-      <form onSubmit={addUser}>
-        <div className="add-user-form">
+    <div className="update-user">
+      <h2>Aggiorna utente</h2>
+      <form onSubmit={updateUser}>
+        <div className="update-user-form">
           <input
             type="text"
             name="nome"
@@ -77,12 +102,12 @@ const AddUser = (props) => {
             onChange={(e) => setOrario(e.target.value)}
           />
         </div>
-        <button className="addBtn" type="submit">
-          Aggiungi
+        <button className="updBtn" type="submit">
+          Aggiorna
         </button>
       </form>
     </div>
   );
 };
 
-export default AddUser;
+export default UpdateUser;
