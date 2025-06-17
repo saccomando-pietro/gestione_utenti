@@ -1,18 +1,25 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
-const AddUser = (props) => {
+const AddUser = ({url, getUsers}) => {
   const [nome, setNome] = useState("");
   const [cognome, setCognome] = useState("");
   const [mail, setMail] = useState("");
   const [profilo, setProfilo] = useState("");
   const [orarioGiornaliero, setOrario] = useState("");
 
+  const reset = () => {
+      setNome("")
+      setCognome("")
+      setMail("")
+      setProfilo("")
+      setOrario("")
+  }
+
   const addUser = async (event) => {
     event.preventDefault();
-    window.location.reload();
     let item = { nome, cognome, mail, profilo, orarioGiornaliero };
     try {
-      await fetch(props.url, {
+      await fetch(url, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -20,6 +27,8 @@ const AddUser = (props) => {
         },
         body: JSON.stringify(item),
       });
+      getUsers();
+      reset();
     } catch (error) {
       console.error("Errore:", error);
     }

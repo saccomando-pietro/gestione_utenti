@@ -11,14 +11,14 @@ const UpdateUser = (props) => {
   const navigate = useNavigate();
 
   useEffect(() => {
-    getUser();
-  }, []);
+    getUser(props.url, id);
+  }, [props.url, id]);
 
 
-  const getUser = async () =>{
+  const getUser = async (url, id) =>{
     try{
-      const response = await fetch(`${props.url}/${id}`);
-      const data = await response.json();
+      const response = await fetch(`${url}/${id}`);
+      const data= await response.json();
       if(data){
         setNome(data.nome)
         setCognome(data.cognome)

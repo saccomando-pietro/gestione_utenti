@@ -1,26 +1,10 @@
-import { useEffect, useState } from "react";
+
 import { useNavigate } from "react-router-dom";
 
-const UserList = (props) => {
-  const [users, setUsers] = useState([]);
+const UserList = ({ users, getUsers}) => {
   const navigate = useNavigate();
 
-  useEffect(() => {
-    getUsers();
-  }, []);
-
   
-  const getUsers = async () => {
-    try {
-      const response = await fetch(props.url);
-      const data = await response.json();
-      if (data) {
-        setUsers(data);
-      }
-    } catch (error) {
-      console.error("Errore:", error);
-    }
-  };
 
   const deleteUser = async (user) => {
     try {
