@@ -1,14 +1,14 @@
 
 import { useNavigate } from "react-router-dom";
 
-const UserList = ({ users, getUsers}) => {
+const UserList = ({ url, users, getUsers}) => {
   const navigate = useNavigate();
 
   
 
   const deleteUser = async (user) => {
     try {
-      await fetch(`${props.url}/${user.id}`, {
+      await fetch(`${url}/${user.id}`, {
         method: "DELETE",
       });
     } catch (error) {

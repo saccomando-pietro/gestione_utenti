@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import { useNavigate, useParams } from "react-router-dom";
 
-const UpdateUser = (props) => {
+const UpdateUser = ({url}) => {
   const [nome, setNome] = useState("");
   const [cognome, setCognome] = useState("");
   const [mail, setMail] = useState("");
@@ -11,8 +11,8 @@ const UpdateUser = (props) => {
   const navigate = useNavigate();
 
   useEffect(() => {
-    getUser(props.url, id);
-  }, [props.url, id]);
+    getUser(url, id);
+  }, [url, id]);
 
 
   const getUser = async (url, id) =>{

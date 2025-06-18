@@ -30,7 +30,7 @@ console.log("Log durante rendering")
     <div className="main-container">
       <h1>Gestione utenti</h1>
       <AddUser url={url} getUsers={getUsers}/>
-      <UserList users={users} getUsers={getUsers}/>
+      <UserList url={url} users={users} getUsers={getUsers}/>
     </div>
   );
 };
