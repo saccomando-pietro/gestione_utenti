@@ -1,12 +1,9 @@
 import { useEffect, useState } from "react";
 import { useNavigate, useParams } from "react-router-dom";
+import { useUserForm } from "../hooks/useUserForm";
 
 const UpdateUser = ({url}) => {
-  const [nome, setNome] = useState("");
-  const [cognome, setCognome] = useState("");
-  const [mail, setMail] = useState("");
-  const [profilo, setProfilo] = useState("");
-  const [orarioGiornaliero, setOrario] = useState("");
+  
   const { id } = useParams();
   const navigate = useNavigate();
 

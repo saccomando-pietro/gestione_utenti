@@ -1,11 +1,7 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 const AddUser = ({url, getUsers}) => {
-  const [nome, setNome] = useState("");
-  const [cognome, setCognome] = useState("");
-  const [mail, setMail] = useState("");
-  const [profilo, setProfilo] = useState("");
-  const [orarioGiornaliero, setOrario] = useState("");
+  const {nome} = useUserForm();
 
   const reset = () => {
       setNome("")
@@ -40,12 +36,7 @@ const AddUser = ({url, getUsers}) => {
       <form onSubmit={addUser}>
         <div className="add-user-form">
           <input
-            type="text"
-            name="nome"
-            id="nome"
-            placeholder="Nome"
-            value={nome}
-            onChange={(e) => setNome(e.target.value)}
+            {...nome}
           />
           <input
             type="text"
