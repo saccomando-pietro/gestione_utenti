@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 
 export const useUsers = () => {
   const [users, setUsers] = useState([]);
-
+  const url = "http://localhost:8090/api/users";
   useEffect(() => {
     console.log("Trigger effetto");
     getUsers();
@@ -22,5 +22,5 @@ export const useUsers = () => {
     }
   };
 
-  return {users, getUsers};
+  return { users, getUsers };
 };

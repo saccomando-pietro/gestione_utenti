@@ -4,7 +4,7 @@ import UserPage from "./components/UserPage";
 import UpdateUser from "./components/UpdateUser";
 
 function App() {
-  const API_URL = "http://localhost:8090/users";
+  const API_URL = "http://localhost:8090/api/users";
   return (
     <BrowserRouter>
       <Routes>
