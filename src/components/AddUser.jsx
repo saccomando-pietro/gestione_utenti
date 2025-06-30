@@ -2,6 +2,10 @@
 import { useUserForm } from "../hooks/useUserForm";
 const AddUser = ({url, getUsers}) => {
   const {nome} = useUserForm();
+  const {cognome} = useUserForm();
+  const {mail} = useUserForm();
+  const {profilo} = useUserForm();
+  const {orarioGiornaliero} = useUserForm();
 
   const reset = () => {
       setNome("")
@@ -31,35 +35,21 @@ const AddUser = ({url, getUsers}) => {
   };
 
   return (
-    <div className="add-user">
+    <div className="user-form">
       <h2>Aggiungi utente</h2>
       <form onSubmit={addUser}>
-        <div className="add-user-form">
+        <div className="input-user-form">
           <input
             {...nome}
           />
           <input
-            type="text"
-            name="cognome"
-            id="cognome"
-            placeholder="Cognome"
-            value={cognome}
-            onChange={(e) => setCognome(e.target.value)}
+            {...cognome}
           />
           <input
-            type="email"
-            name="mail"
-            id="mail"
-            placeholder="Mail"
-            value={mail}
-            onChange={(e) => setMail(e.target.value)}
+          {...mail}
           />
           <select
-            name="profilo"
-            id="profilo"
-            required
-            value={profilo}
-            onChange={(e) => setProfilo(e.target.value)}
+            {...profilo}
           >
             <option value="" disabled selected>
               -- Seleziona un profilo --
@@ -69,15 +59,10 @@ const AddUser = ({url, getUsers}) => {
             <option value="RT">Responsabile Tecnico</option>
           </select>
           <input
-            type="text"
-            name="orarioGiornaliero"
-            id="orario"
-            placeholder="Orario"
-            value={orarioGiornaliero}
-            onChange={(e) => setOrario(e.target.value)}
+            {...orarioGiornaliero}
           />
         </div>
-        <button className="addBtn" type="submit">
+        <button className="formBtn" type="submit">
           Aggiungi
         </button>
       </form>

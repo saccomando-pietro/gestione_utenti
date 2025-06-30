@@ -1,8 +1,8 @@
 import { useEffect, useState } from "react";
+import {API_URL} from "../utils/api";
 
 export const useUsers = () => {
   const [users, setUsers] = useState([]);
-  const url = "http://localhost:8090/api/users";
   useEffect(() => {
     console.log("Trigger effetto");
     getUsers();
@@ -12,7 +12,7 @@ export const useUsers = () => {
 
   const getUsers = async () => {
     try {
-      const response = await fetch(url);
+      const response = await fetch(API_URL);
       const data = await response.json();
       if (data) {
         setUsers(data);

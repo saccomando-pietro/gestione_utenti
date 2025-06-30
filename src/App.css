@@ -22,7 +22,7 @@ h2 {
   color: #2c3e50;
 }
 
-.add-user {
+.user-form {
   background-color: #fff;
   max-width: 60vw;
   padding: 1rem;
@@ -30,14 +30,14 @@ h2 {
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
 }
 
-.add-user-form {
+.input-user-form {
   display: grid;
   grid-template-columns: repeat(3, auto);
   gap: 10px;
 }
 
-.add-user-form input,
-.add-user-form select {
+.input-user-form input,
+.input-user-form select {
   padding: 10px;
   font-size: 1rem;
   border: 1px solid #ccc;
@@ -45,13 +45,13 @@ h2 {
   transition: border-color 0.2s ease;
 }
 
-.add-user-form input:focus,
-.add-user-form select:focus {
+.input-user-form input:focus,
+.input-user-form select:focus {
   border-color: #007bff;
   outline: none;
 }
 
-.addBtn {
+.formBtn {
   background-color: green;
   color: white;
   font-weight: bold;
@@ -65,7 +65,7 @@ h2 {
   margin-top: 1rem;
 }
 
-.addBtn:hover {
+.formBtn:hover {
   background-color: forestgreen;
 }
 

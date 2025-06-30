@@ -3,7 +3,11 @@ import { useNavigate, useParams } from "react-router-dom";
 import { useUserForm } from "../hooks/useUserForm";
 
 const UpdateUser = ({url}) => {
-  
+  const {nome} = useUserForm();
+  const {cognome} = useUserForm();
+  const {mail} = useUserForm();
+  const {profilo} = useUserForm();
+  const {orarioGiornaliero} = useUserForm();
   const { id } = useParams();
   const navigate = useNavigate();
 
@@ -48,40 +52,21 @@ const UpdateUser = ({url}) => {
   
 
   return (
-    <div className="update-user">
+    <div className="user-form">
       <h2>Aggiorna utente</h2>
       <form onSubmit={updateUser}>
-        <div className="update-user-form">
+        <div className="input-user-form">
           <input
-            type="text"
-            name="nome"
-            id="nome"
-            placeholder="Nome"
-            value={nome}
-            onChange={(e) => setNome(e.target.value)}
+            {...nome}
           />
           <input
-            type="text"
-            name="cognome"
-            id="cognome"
-            placeholder="Cognome"
-            value={cognome}
-            onChange={(e) => setCognome(e.target.value)}
+            {...cognome}
           />
           <input
-            type="email"
-            name="mail"
-            id="mail"
-            placeholder="Mail"
-            value={mail}
-            onChange={(e) => setMail(e.target.value)}
+          {...mail}
           />
           <select
-            name="profilo"
-            id="profilo"
-            required
-            value={profilo}
-            onChange={(e) => setProfilo(e.target.value)}
+            {...profilo}
           >
             <option value="" disabled selected>
               -- Seleziona un profilo --
@@ -91,15 +76,10 @@ const UpdateUser = ({url}) => {
             <option value="RT">Responsabile Tecnico</option>
           </select>
           <input
-            type="text"
-            name="orarioGiornaliero"
-            id="orario"
-            placeholder="Orario"
-            value={orarioGiornaliero}
-            onChange={(e) => setOrario(e.target.value)}
+            {...orarioGiornaliero}
           />
         </div>
-        <button className="updBtn" type="submit">
+        <button className="formBtn" type="submit">
           Aggiorna
         </button>
       </form>

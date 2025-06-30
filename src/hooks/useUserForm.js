@@ -1,5 +1,4 @@
 import { useState } from "react";
-import { useNavigate } from "react-router-dom";
 export const useUserForm = (user = {}) => {
   const [nome, setNome] = useState("");
   const [cognome, setCognome] = useState("");
@@ -16,5 +15,37 @@ export const useUserForm = (user = {}) => {
       value: nome,
       onChange: (e) => setNome(e.target.value),
     },
+    cognome: {
+      type: "text",
+      name: "cognome",
+      id: "cognome",
+      placeholder: "Cognome",
+      value: cognome,
+      onChange: (e) => setCognome(e.target.value),
+    },
+    mail: {
+      type: "email",
+      name: "mail",
+      id: "mail",
+      placeholder: "Mail",
+      value: mail,
+      onChange: (e) => setMail(e.target.value),
+    },
+    profilo: {
+      type: "text",
+      name: "profilo",
+      id: "profilo",
+      placeholder: "Profilo",
+      value: profilo,
+      onChange: (e) => setProfilo(e.target.value),
+    },
+    orarioGiornaliero: {
+      type: "text",
+      name: "orarioGiornaliero",
+      id: "orarioGiornaliero",
+      placeholder: "Orario giornaliero",
+      value: orarioGiornaliero,
+      onChange: (e) => setOrario(e.target.value),
+    }
   };
 };

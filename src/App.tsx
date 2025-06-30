@@ -2,9 +2,9 @@ import { BrowserRouter, Route, Routes } from "react-router-dom";
 import Home from "./components/Home";
 import UserPage from "./components/UserPage";
 import UpdateUser from "./components/UpdateUser";
+import {API_URL} from "./utils/api";
 
 function App() {
-  const API_URL = "http://localhost:8090/api/users";
   return (
     <BrowserRouter>
       <Routes>
