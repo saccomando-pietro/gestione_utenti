@@ -2,12 +2,21 @@ import { useEffect, useState } from "react";
 import { useNavigate, useParams } from "react-router-dom";
 import { useUserForm } from "../hooks/useUserForm";
 
-const UpdateUser = ({url}) => {
-  const {nome} = useUserForm();
-  const {cognome} = useUserForm();
-  const {mail} = useUserForm();
-  const {profilo} = useUserForm();
-  const {orarioGiornaliero} = useUserForm();
+const UpdateUser = ({ url }) => {
+  const {
+    nome,
+    setNome,
+    cognome,
+    setCognome,
+    username,
+    setUsername,
+    mail,
+    setMail,
+    profilo,
+    setProfilo,
+    orarioGiornaliero,
+    setOrario,
+  } = useUserForm();
   const { id } = useParams();
   const navigate = useNavigate();
 
@@ -15,30 +24,36 @@ const UpdateUser = ({url}) => {
     getUser(url, id);
   }, [url, id]);
 
-
-  const getUser = async (url, id) =>{
-    try{
+  const getUser = async (url, id) => {
+    try {
       const response = await fetch(`${url}/${id}`);
-      const data= await response.json();
-      if(data){
-        setNome(data.nome)
-        setCognome(data.cognome)
-        setMail(data.mail)
-        setProfilo(data.profilo)
-        setOrario(data.orarioGiornaliero)
+      const data = await response.json();
+      if (data) {
+        setNome(data.nome);
+        setCognome(data.cognome);
+        setUsername(data.username)
+        setMail(data.mail);
+        setProfilo(data.profilo);
+        setOrario(data.orarioGiornaliero);
       }
-
-    }catch(error){
-      console.error("Errore: ", error)
+    } catch (error) {
+      console.error("Errore: ", error);
     }
-  }
+  };
 
   const updateUser = async (event) => {
     event.preventDefault();
-    navigate("/users")
-    let item = { nome, cognome, mail, profilo, orarioGiornaliero };
+    navigate("/users");
+    let item = {
+      nome: nome.value,
+      cognome: cognome.value,
+      username: username.value,
+      mail: mail.value,
+      profilo: profilo.value,
+      orarioGiornaliero: orarioGiornaliero.value,
+    };
     try {
-      await fetch(`${props.url}/${id}`, {
+      await fetch(`${url}/${id}`, {
         method: "PUT",
         headers: {
           "Content-Type": "application/json",
@@ -48,26 +63,18 @@ const UpdateUser = ({url}) => {
     } catch (error) {
       console.error("Errore:", error);
     }
-  }; 
-  
+  };
 
   return (
     <div className="user-form">
       <h2>Aggiorna utente</h2>
       <form onSubmit={updateUser}>
         <div className="input-user-form">
-          <input
-            {...nome}
-          />
-          <input
-            {...cognome}
-          />
-          <input
-          {...mail}
-          />
-          <select
-            {...profilo}
-          >
+          <input {...nome} />
+          <input {...cognome} />
+          <input {...username} />
+          <input {...mail} />
+          <select {...profilo}>
             <option value="" disabled selected>
               -- Seleziona un profilo --
             </option>
@@ -75,9 +82,7 @@ const UpdateUser = ({url}) => {
             <option value="JD">Junior Developer</option>
             <option value="RT">Responsabile Tecnico</option>
           </select>
-          <input
-            {...orarioGiornaliero}
-          />
+          <input {...orarioGiornaliero} />
         </div>
         <button className="formBtn" type="submit">
           Aggiorna

@@ -1,23 +1,40 @@
-
 import { useUserForm } from "../hooks/useUserForm";
-const AddUser = ({url, getUsers}) => {
-  const {nome} = useUserForm();
-  const {cognome} = useUserForm();
-  const {mail} = useUserForm();
-  const {profilo} = useUserForm();
-  const {orarioGiornaliero} = useUserForm();
+const AddUser = ({ url, getUsers }) => {
+  const {
+    nome,
+    setNome,
+    cognome,
+    setCognome,
+    username,
+    setUsername,
+    mail,
+    setMail,
+    profilo,
+    setProfilo,
+    orarioGiornaliero,
+    setOrario,
+  } = useUserForm();
 
   const reset = () => {
-      setNome("")
-      setCognome("")
-      setMail("")
-      setProfilo("")
-      setOrario("")
-  }
+    setNome("");
+    setCognome("");
+    setUsername("");
+    setMail("");
+    setProfilo("");
+    setOrario("");
+  };
 
   const addUser = async (event) => {
     event.preventDefault();
-    let item = { nome, cognome, mail, profilo, orarioGiornaliero };
+    let item = {
+      nome: nome.value,
+      cognome: cognome.value,
+      username: username.value,
+      mail: mail.value,
+      profilo: profilo.value,
+      orarioGiornaliero: orarioGiornaliero.value,
+    };
+
     try {
       await fetch(url, {
         method: "POST",
@@ -39,18 +56,11 @@ const AddUser = ({url, getUsers}) => {
       <h2>Aggiungi utente</h2>
       <form onSubmit={addUser}>
         <div className="input-user-form">
-          <input
-            {...nome}
-          />
-          <input
-            {...cognome}
-          />
-          <input
-          {...mail}
-          />
-          <select
-            {...profilo}
-          >
+          <input {...nome} />
+          <input {...cognome} />
+          <input {...username} />
+          <input {...mail} />
+          <select {...profilo}>
             <option value="" disabled selected>
               -- Seleziona un profilo --
             </option>
@@ -58,9 +68,7 @@ const AddUser = ({url, getUsers}) => {
             <option value="JD">Junior Developer</option>
             <option value="RT">Responsabile Tecnico</option>
           </select>
-          <input
-            {...orarioGiornaliero}
-          />
+          <input {...orarioGiornaliero} />
         </div>
         <button className="formBtn" type="submit">
           Aggiungi

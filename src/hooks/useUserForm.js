@@ -2,6 +2,7 @@ import { useState } from "react";
 export const useUserForm = (user = {}) => {
   const [nome, setNome] = useState("");
   const [cognome, setCognome] = useState("");
+  const [username, setUsername] = useState("");
   const [mail, setMail] = useState("");
   const [profilo, setProfilo] = useState("");
   const [orarioGiornaliero, setOrario] = useState("");
@@ -22,6 +23,14 @@ export const useUserForm = (user = {}) => {
       placeholder: "Cognome",
       value: cognome,
       onChange: (e) => setCognome(e.target.value),
+    },
+    username: {
+      type: "text",
+      name: "username",
+      id: "username",
+      placeholder: "Username",
+      value: username,
+      onChange: (e) => setUsername(e.target.value),
     },
     mail: {
       type: "email",
@@ -46,6 +55,13 @@ export const useUserForm = (user = {}) => {
       placeholder: "Orario giornaliero",
       value: orarioGiornaliero,
       onChange: (e) => setOrario(e.target.value),
-    }
+    },
+
+    setNome,
+    setCognome,
+    setUsername,
+    setMail,
+    setProfilo,
+    setOrario
   };
 };
