@@ -15,7 +15,7 @@ export const useUsers = () => {
       const response = await fetch(API_URL);
       const data = await response.json();
       if (data) {
-        setUsers(data);
+        setUsers(data.content);
       }
     } catch (error) {
       console.error("Errore:", error);

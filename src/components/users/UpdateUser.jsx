@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { useNavigate, useParams } from "react-router-dom";
-import { useUserForm } from "../hooks/useUserForm";
+import { useUserForm } from "../../hooks/useUserForm";
 
 const UpdateUser = ({ url }) => {
   const {
@@ -31,7 +31,7 @@ const UpdateUser = ({ url }) => {
       if (data) {
         setNome(data.nome);
         setCognome(data.cognome);
-        setUsername(data.username)
+        setUsername(data.username);
         setMail(data.mail);
         setProfilo(data.profilo);
         setOrario(data.orarioGiornaliero);

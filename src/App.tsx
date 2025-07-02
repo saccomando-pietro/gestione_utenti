@@ -1,8 +1,8 @@
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import Home from "./components/Home";
-import UserPage from "./components/UserPage";
-import UpdateUser from "./components/UpdateUser";
-import {API_URL} from "./utils/api";
+import UpdateUser from "./components/users/UpdateUser";
+import UserPage from "./components/users/UserPage";
+import { API_URL } from "./utils/api";
 
 function App() {
   return (
@@ -10,7 +10,10 @@ function App() {
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/users" element={<UserPage url={API_URL} />} />
-        <Route path="/users/update/:id" element={<UpdateUser url={API_URL} />} />
+        <Route
+          path="/users/update/:id"
+          element={<UpdateUser url={API_URL} />}
+        />
       </Routes>
     </BrowserRouter>
   );
