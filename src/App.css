@@ -3,22 +3,16 @@ body {
   background-color: #f4f6f8;
   color: #333;
 }
-.lista-entita{
-  list-style-type: none;
-  cursor: pointer;
-}
 .main-container {
   margin: 0;
   padding: 2rem;
   display: flex;
   flex-direction: column;
-  gap: 2rem;
   justify-content: space-between;
 }
 
 h1,
 h2 {
-  /* text-align: center; */
   color: #2c3e50;
 }
 
