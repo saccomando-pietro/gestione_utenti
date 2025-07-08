@@ -26,6 +26,8 @@ const UserList = ({ url, users, getUsers}) => {
               {user.nome} {user.cognome}
             </h3>
             <p>
+              <strong>Username:</strong> {user.username}
+              <br />
               <strong>Email:</strong> {user.mail}
               <br />
               <strong>Profilo:</strong> {user.profilo}
