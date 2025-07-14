@@ -23,14 +23,14 @@ const UserList = ({ url, users, getUsers}) => {
         {users.map((user, index) => (
           <div className="user-card" key={index}>
             <h3>
-              {user.nome} {user.cognome}
+              {user.firstName} {user.lastName}
             </h3>
             <p>
               <strong>Username:</strong> {user.username}
               <br />
-              <strong>Email:</strong> {user.mail}
+              <strong>Email:</strong> {user.email}
               <br />
-              <strong>Profilo:</strong> {user.profilo}
+              <strong>Profilo:</strong> {user.profile}
             </p>
             <div className="user-row-btn">
               <button className="modBtn" onClick={() => navigate(`/users/update/${user.id}`)}>

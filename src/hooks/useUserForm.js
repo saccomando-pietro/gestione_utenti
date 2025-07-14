@@ -1,28 +1,28 @@
 import { useState } from "react";
 export const useUserForm = (user = {}) => {
-  const [nome, setNome] = useState("");
-  const [cognome, setCognome] = useState("");
+  const [firstName, setFirstName] = useState("");
+  const [lastName, setLastName] = useState("");
   const [username, setUsername] = useState("");
-  const [mail, setMail] = useState("");
-  const [profilo, setProfilo] = useState("");
-  const [orarioGiornaliero, setOrario] = useState("");
+  const [email, setEmail] = useState("");
+  const [profile, setProfile] = useState("");
+  const [dailyHours, setDailyHours] = useState("");
 
   return {
-    nome: {
+    firstName: {
       type: "text",
-      name: "nome",
-      id: "nome",
+      name: "first_name",
+      id: "firstName",
       placeholder: "Nome",
-      value: nome,
-      onChange: (e) => setNome(e.target.value),
+      value: firstName,
+      onChange: (e) => setFirstName(e.target.value),
     },
-    cognome: {
+    lastName: {
       type: "text",
-      name: "cognome",
-      id: "cognome",
+      name: "last_name",
+      id: "lastName",
       placeholder: "Cognome",
-      value: cognome,
-      onChange: (e) => setCognome(e.target.value),
+      value: lastName,
+      onChange: (e) => setLastName(e.target.value),
     },
     username: {
       type: "text",
@@ -32,36 +32,36 @@ export const useUserForm = (user = {}) => {
       value: username,
       onChange: (e) => setUsername(e.target.value),
     },
-    mail: {
+    email: {
       type: "email",
-      name: "mail",
-      id: "mail",
-      placeholder: "Mail",
-      value: mail,
-      onChange: (e) => setMail(e.target.value),
+      name: "email",
+      id: "email",
+      placeholder: "Email",
+      value: email,
+      onChange: (e) => setEmail(e.target.value),
     },
-    profilo: {
+    profile: {
       type: "text",
-      name: "profilo",
-      id: "profilo",
+      name: "profile",
+      id: "profile",
       placeholder: "Profilo",
-      value: profilo,
-      onChange: (e) => setProfilo(e.target.value),
+      value: profile,
+      onChange: (e) => setProfile(e.target.value),
     },
-    orarioGiornaliero: {
+    dailyHours: {
       type: "text",
-      name: "orarioGiornaliero",
-      id: "orarioGiornaliero",
+      name: "daily_hours",
+      id: "dailyHours",
       placeholder: "Orario giornaliero",
-      value: orarioGiornaliero,
-      onChange: (e) => setOrario(e.target.value),
+      value: dailyHours,
+      onChange: (e) => setDailyHours(e.target.value),
     },
 
-    setNome,
-    setCognome,
+    setFirstName,
+    setLastName,
     setUsername,
-    setMail,
-    setProfilo,
-    setOrario
-  };
+    setEmail,
+    setProfile,
+    setDailyHours
+  }
 };

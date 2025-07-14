@@ -4,18 +4,18 @@ import { useUserForm } from "../../hooks/useUserForm";
 
 const UpdateUser = ({ url }) => {
   const {
-    nome,
-    setNome,
-    cognome,
-    setCognome,
+    firstName,
+    setFirstName,
+    lastName,
+    setLastName,
     username,
     setUsername,
-    mail,
-    setMail,
-    profilo,
-    setProfilo,
-    orarioGiornaliero,
-    setOrario,
+    email,
+    setEmail,
+    profile,
+    setProfile,
+    dailyHours,
+    setDailyHours,
   } = useUserForm();
   const { id } = useParams();
   const navigate = useNavigate();
@@ -29,12 +29,12 @@ const UpdateUser = ({ url }) => {
       const response = await fetch(`${url}/${id}`);
       const data = await response.json();
       if (data) {
-        setNome(data.nome);
-        setCognome(data.cognome);
+        setFirstName(data.firstName);
+        setLastName(data.lastName);
         setUsername(data.username);
-        setMail(data.mail);
-        setProfilo(data.profilo);
-        setOrario(data.orarioGiornaliero);
+        setEmail(data.email);
+        setProfile(data.profile);
+        setDailyHours(data.dailyHours);
       }
     } catch (error) {
       console.error("Errore: ", error);
@@ -45,12 +45,12 @@ const UpdateUser = ({ url }) => {
     event.preventDefault();
     navigate("/users");
     let item = {
-      nome: nome.value,
-      cognome: cognome.value,
+      firstName: firstName.value,
+      lastName: lastName.value,
       username: username.value,
-      mail: mail.value,
-      profilo: profilo.value,
-      orarioGiornaliero: orarioGiornaliero.value,
+      email: email.value,
+      profile: profile.value,
+      dailyHours: dailyHours.value,
     };
     try {
       await fetch(`${url}/${id}`, {
@@ -70,11 +70,11 @@ const UpdateUser = ({ url }) => {
       <h2>Aggiorna utente</h2>
       <form onSubmit={updateUser}>
         <div className="input-user-form">
-          <input {...nome} />
-          <input {...cognome} />
+          <input {...firstName} />
+          <input {...lastName} />
           <input {...username} />
-          <input {...mail} />
-          <select {...profilo}>
+          <input {...email} />
+          <select {...profile}>
             <option value="" disabled selected>
               -- Seleziona un profilo --
             </option>
@@ -82,7 +82,7 @@ const UpdateUser = ({ url }) => {
             <option value="JD">Junior Developer</option>
             <option value="RT">Responsabile Tecnico</option>
           </select>
-          <input {...orarioGiornaliero} />
+          <input {...dailyHours} />
         </div>
         <button className="formBtn" type="submit">
           Aggiorna

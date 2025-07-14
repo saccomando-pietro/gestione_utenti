@@ -1,38 +1,38 @@
 import { useUserForm } from "../../hooks/useUserForm";
 const AddUser = ({ url, getUsers }) => {
   const {
-    nome,
-    setNome,
-    cognome,
-    setCognome,
+    firstName,
+    setFirstName,
+    lastName,
+    setLastName,
     username,
     setUsername,
-    mail,
-    setMail,
-    profilo,
-    setProfilo,
-    orarioGiornaliero,
-    setOrario,
+    email,
+    setEmail,
+    profile,
+    setProfile,
+    dailyHours,
+    setDailyHours,
   } = useUserForm();
 
   const reset = () => {
-    setNome("");
-    setCognome("");
+    setFirstName("");
+    setLastName("");
     setUsername("");
-    setMail("");
-    setProfilo("");
-    setOrario("");
+    setEmail("");
+    setProfile("");
+    setDailyHours("");
   };
 
   const addUser = async (event) => {
     event.preventDefault();
     let item = {
-      nome: nome.value,
-      cognome: cognome.value,
+      firstName: firstName.value,
+      lastName: lastName.value,
       username: username.value,
-      mail: mail.value,
-      profilo: profilo.value,
-      orarioGiornaliero: orarioGiornaliero.value,
+      email: email.value,
+      profile: profile.value,
+      dailyHours: dailyHours.value,
     };
 
     try {
@@ -56,11 +56,11 @@ const AddUser = ({ url, getUsers }) => {
       <h2>Aggiungi utente</h2>
       <form onSubmit={addUser}>
         <div className="input-user-form">
-          <input {...nome} />
-          <input {...cognome} />
+          <input {...firstName} />
+          <input {...lastName} />
           <input {...username} />
-          <input {...mail} />
-          <select {...profilo}>
+          <input {...email} />
+          <select {...profile}>
             <option value="" disabled selected>
               -- Seleziona un profilo --
             </option>
@@ -68,7 +68,7 @@ const AddUser = ({ url, getUsers }) => {
             <option value="JD">Junior Developer</option>
             <option value="RT">Responsabile Tecnico</option>
           </select>
-          <input {...orarioGiornaliero} />
+          <input {...dailyHours} />
         </div>
         <button className="formBtn" type="submit">
           Aggiungi
