@@ -1,26 +1,26 @@
 import { useEffect, useState } from "react";
-import {USERS_API_URL} from "../utils/api";
+import {PROJECTS_API_URL} from "../utils/api";
 
-export const useUsers = () => {
-  const [users, setUsers] = useState([]);
+export const useProjects = () => {
+  const [projects, setProjects] = useState([]);
   useEffect(() => {
     console.log("Trigger effetto");
-    getUsers();
+    getProjects();
   }, []);
 
   console.log("Log durante rendering");
 
-  const getUsers = async () => {
+  const getProjects = async () => {
     try {
-      const response = await fetch(USERS_API_URL);
+      const response = await fetch(PROJECTS_API_URL);
       const data = await response.json();
       if (data) {
-        setUsers(data);
+        setProjects(data);
       }
     } catch (error) {
       console.error("Errore:", error);
     }
   };
 
-  return { users, getUsers };
+  return { projects, getProjects };
 };

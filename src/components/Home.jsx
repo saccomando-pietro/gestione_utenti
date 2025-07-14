@@ -10,6 +10,9 @@ const Home = () => {
           <li>
             <h2 onClick={() => navigate("/users")}>Utenti</h2>
           </li>
+          <li>
+            <h2 onClick={() => navigate("/projects")}>Progetti</h2>
+          </li>
         </ul>
       </div>
     </>
