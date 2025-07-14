@@ -13,12 +13,12 @@ function App() {
         <Route path="/" element={<Home />} />
         <Route path="/users" element={<UserPage url={USERS_API_URL} />} />
         <Route
-          path="/users/update/:id"
+          path="/user/update/:id"
           element={<UpdateUser url={USERS_API_URL} />}
         />
         <Route path="/projects" element={<ProjectPage url={PROJECTS_API_URL} />} />
         <Route
-          path="/projects/update/:id"
+          path="/project/update/:id"
           element={<UpdateProject url={PROJECTS_API_URL} />}
         />
       </Routes>

@@ -32,7 +32,7 @@ const ProjectList = ({ url, projects, getProjects}) => {
               <strong>Stato:</strong> {project.state}
             </p>
             <div className="user-row-btn">
-              <button className="modBtn" onClick={() => navigate(`/projects/update/${project.id}`)}>
+              <button className="modBtn" onClick={() => navigate(`/project/update/${project.id}`)}>
                 Modifica
               </button>
               <button className="dltBtn" onClick={() => deleteProject(project)}>

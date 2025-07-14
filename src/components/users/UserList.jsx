@@ -33,7 +33,7 @@ const UserList = ({ url, users, getUsers}) => {
               <strong>Profilo:</strong> {user.profile}
             </p>
             <div className="user-row-btn">
-              <button className="modBtn" onClick={() => navigate(`/users/update/${user.id}`)}>
+              <button className="modBtn" onClick={() => navigate(`/user/update/${user.id}`)}>
                 Modifica
               </button>
               <button className="dltBtn" onClick={() => deleteUser(user)}>
