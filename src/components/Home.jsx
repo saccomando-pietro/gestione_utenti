@@ -1,21 +1,23 @@
-import { useNavigate } from "react-router-dom";
 import "../App.css";
+import { useState } from "react";
+import ProjectList from "./ProjectList";
+import { projects, tasks } from "../data/mockData";
+import TaskList from "./TaskList";
+
 const Home = () => {
-  const navigate = useNavigate();
+  const [selectedProjectId, setSelectedProjectId] = useState(null);
+
+  const filteredTasks = tasks.filter((task) => task.projectId === selectedProjectId);
+
   return (
-    <>
-      <div className="home-container">
-        <h1>Seleziona l'entità che vuoi modificare</h1>
-        <ul className="lista-entita">
-          <li>
-            <h2 onClick={() => navigate("/users")}>Utenti</h2>
-          </li>
-          <li>
-            <h2 onClick={() => navigate("/projects")}>Progetti</h2>
-          </li>
-        </ul>
-      </div>
-    </>
+    <div className="app-container">
+      <ProjectList
+        projects={projects}
+        onSelect={setSelectedProjectId}
+        selectedProjectId={selectedProjectId}
+      />
+      <TaskList tasks={filteredTasks} />
+    </div>
   );
 };
 
