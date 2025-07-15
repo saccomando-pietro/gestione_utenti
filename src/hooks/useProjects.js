@@ -12,7 +12,7 @@ export const useProjects = () => {
 
   const getProjects = async () => {
     try {
-      const response = await fetch(PROJECTS_API_URL);
+      const response = await fetch(PROJECTS_API_URL, {headers:{"Authorization": "basic:dXNlcjpwYXNzd29yZA=="}});
       const data = await response.json();
       if (data) {
         setProjects(data);
