@@ -73,7 +73,7 @@ const AddProject = ({ url, getProjects }) => {
             </option>
             <option value="OPEN">OPEN</option>
             <option value="CLOSED">CLOSED</option>
-            <option value="DELETED">DELETED Tecnico</option>
+            <option value="DELETED">DELETED</option>
           </select>
         </div>
         <button className="formBtn" type="submit">
