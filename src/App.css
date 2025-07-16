@@ -17,8 +17,7 @@ input[type="text"] {
   font-size: 14px;
 }
 
-/* =============== TOOLBAR =============== */
-.toolbar {
+.navbar {
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -28,27 +27,27 @@ input[type="text"] {
   box-shadow: 0 2px 4px rgba(0,0,0,0.05);
 }
 
-.toolbar .left {
+.navbar .left {
   display: flex;
   align-items: center;
   gap: 20px;
 }
 
-.toolbar .left .logo {
+.navbar .left .logo {
   width: 24px;
   height: 24px;
   border-radius: 50%;
   background-color: #bbb;
 }
 
-.toolbar input[type="text"] {
+.navbar input[type="text"] {
   padding: 6px 12px;
   border: 1px solid #ccc;
   border-radius: 4px;
   width: 240px;
 }
 
-.toolbar button {
+.navbar button {
   font-weight: 600;
   border: none;
   background-color: #007bff;
@@ -58,7 +57,7 @@ input[type="text"] {
   transition: background-color 0.2s;
 }
 
-.toolbar button:hover {
+.navbar button:hover {
   background-color: #0056b3;
 }
 
@@ -90,57 +89,3 @@ input[type="text"] {
   text-decoration: underline;
 }
 
-/* =============== TIMELINE HEADER =============== */
-.timeline-header {
-  border-bottom: 1px solid #ccc;
-}
-
-.timeline-header .month {
-  border-left: 1px solid #ccc;
-  user-select: none;
-}
-.timeline-header .month:first-child {
-  border-left: none;
-}
-
-
-/* =============== ACTIVITY ROW =============== */
-.activity-row {
-  display: flex;
-  align-items: center;
-  gap: 10px;
-  margin-bottom: 8px;
-}
-
-.activity-row .icons {
-  display: flex;
-  gap: 6px;
-  font-size: 14px;
-}
-
-.activity-row .name {
-  width: 96px;
-  font-size: 14px;
-}
-
-.activity-row .bar-container {
-  position: relative;
-  flex: 1;
-  height: 16px;
-  background-color: #f1f3f5;
-  border-radius: 4px;
-}
-
-.activity-row .bar {
-  position: absolute;
-  height: 100%;
-  border-radius: 4px;
-  top: 0;
-  background-color: #69aaf5;
-}
-
-/* =============== COLORS =============== */
-.bg-green-300 { background-color: #63c76a; }
-.bg-red-300 { background-color: #f26c63; }
-.bg-blue-300 { background-color: #69aaf5; }
-.bg-gray-300 { background-color: #bfc5cc; }

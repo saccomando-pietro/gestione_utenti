@@ -1,17 +1,17 @@
 import { useEffect, useState } from "react";
 import "./App.css";
+import Navbar from "./components/Navbar";
 import ProjectList from "./components/ProjectList";
-import Toolbar from "./components/Toolbar";
-import {PROJECTS_API_URL} from "./utils/api";
+import { PROJECTS_API_URL } from "./utils/api";
 
 const App = () => {
-  const [projects, setProjects] = useState([])
+  const [projects, setProjects] = useState([]);
 
   useEffect(() => {
     console.log("Trigger effetto");
     getProjects();
   }, []);
-  const getProjects = async() => {
+  const getProjects = async () => {
     try {
       const response = await fetch(PROJECTS_API_URL, {
         method: "GET",
@@ -27,14 +27,16 @@ const App = () => {
     } catch (error) {
       console.error("Errore:", error);
     }
-  }
+  };
 
-  console.log(projects)
+  console.log(projects);
 
   return (
     <div className="app">
-      <Toolbar />
-      <ProjectList projects={projects} />
+      <Navbar />
+      <div className="main-container">
+        <ProjectList projects={projects} />
+      </div>
     </div>
   );
 };
