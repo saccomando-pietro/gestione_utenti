@@ -27,7 +27,61 @@
   border-radius: 4px;
 }
 
-.task-list {
+.task-gantt {
   flex: 1;
+  overflow-x: auto;
   padding: 1rem;
+  font-family: sans-serif;
 }
+
+.gantt-header {
+  display: flex;
+  align-items: center;
+  border-bottom: 2px solid #ccc;
+  margin-bottom: 10px;
+  gap: 100px;
+}
+
+.task-label-header {
+  width: 150px;
+  font-weight: bold;
+}
+
+.gantt-dates {
+  display: flex;
+  flex-grow: 1;
+}
+
+.gantt-date {
+  width: 20px;
+  font-size: 10px;
+  text-align: center;
+  color: #666;
+}
+
+.gantt-row {
+  display: flex;
+  align-items: center;
+  margin: 6px 0;
+}
+
+.task-label {
+  width: 150px;
+  font-weight: 500;
+}
+
+.gantt-bar-container {
+  position: relative;
+  height: 20px;
+  flex-grow: 1;
+  background-color: #f0f0f0;
+}
+
+.gantt-bar {
+  position: absolute;
+  top: 0;
+  height: 100%;
+  background-color: #4a90e2;
+  border-radius: 4px;
+}
+
