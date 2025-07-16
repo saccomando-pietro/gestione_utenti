@@ -1,87 +1,146 @@
-.app-container {
-  display: flex;
-  height: 100vh;
-  font-family: sans-serif;
-}
+/* styles.css */
 
-.sidebar {
-  width: 250px;
-  background: #f2f2f2;
-  padding: 1rem;
-  border-right: 1px solid #ccc;
-}
-
-.sidebar ul {
-  list-style: none;
+/* =============== GLOBAL =============== */
+body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background-color: #f0f2f5;
+  margin: 0;
   padding: 0;
+  color: #333;
 }
 
-.sidebar li {
-  padding: 8px;
+button {
   cursor: pointer;
 }
 
-.sidebar li.selected {
-  background: #007bff;
+input[type="text"] {
+  font-size: 14px;
+}
+
+/* =============== TOOLBAR =============== */
+.toolbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 16px 24px;
+  background-color: #fff;
+  border-bottom: 1px solid #dcdcdc;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+}
+
+.toolbar .left {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+.toolbar .left .logo {
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  background-color: #bbb;
+}
+
+.toolbar input[type="text"] {
+  padding: 6px 12px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  width: 240px;
+}
+
+.toolbar button {
+  font-weight: 600;
+  border: none;
+  background-color: #007bff;
   color: white;
+  padding: 6px 12px;
   border-radius: 4px;
+  transition: background-color 0.2s;
 }
 
-.task-gantt {
-  flex: 1;
-  overflow-x: auto;
-  padding: 1rem;
-  font-family: sans-serif;
+.toolbar button:hover {
+  background-color: #0056b3;
 }
 
-.gantt-header {
+/* =============== PROJECT CARD =============== */
+.project-card {
+  background-color: #ffffff;
+  border: 1px solid #e0e0e0;
+  border-radius: 12px;
+  padding: 20px;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.05);
+}
+
+.project-title {
+  font-size: 18px;
+  font-weight: 600;
+  margin-bottom: 12px;
+}
+
+.new-activity-button {
+  margin-top: 12px;
+  font-size: 14px;
+  color: #555;
+  background: none;
+  border: none;
+  padding: 4px 8px;
+}
+
+.new-activity-button:hover {
+  text-decoration: underline;
+}
+
+/* =============== TIMELINE HEADER =============== */
+.timeline-header {
+  border-bottom: 1px solid #ccc;
+}
+
+.timeline-header .month {
+  border-left: 1px solid #ccc;
+  user-select: none;
+}
+.timeline-header .month:first-child {
+  border-left: none;
+}
+
+
+/* =============== ACTIVITY ROW =============== */
+.activity-row {
   display: flex;
   align-items: center;
-  border-bottom: 2px solid #ccc;
-  margin-bottom: 10px;
-  gap: 100px;
+  gap: 10px;
+  margin-bottom: 8px;
 }
 
-.task-label-header {
-  width: 150px;
-  font-weight: bold;
-}
-
-.gantt-dates {
+.activity-row .icons {
   display: flex;
-  flex-grow: 1;
+  gap: 6px;
+  font-size: 14px;
 }
 
-.gantt-date {
-  width: 20px;
-  font-size: 10px;
-  text-align: center;
-  color: #666;
+.activity-row .name {
+  width: 96px;
+  font-size: 14px;
 }
 
-.gantt-row {
-  display: flex;
-  align-items: center;
-  margin: 6px 0;
-}
-
-.task-label {
-  width: 150px;
-  font-weight: 500;
-}
-
-.gantt-bar-container {
+.activity-row .bar-container {
   position: relative;
-  height: 20px;
-  flex-grow: 1;
-  background-color: #f0f0f0;
-}
-
-.gantt-bar {
-  position: absolute;
-  top: 0;
-  height: 100%;
-  background-color: #4a90e2;
+  flex: 1;
+  height: 16px;
+  background-color: #f1f3f5;
   border-radius: 4px;
 }
 
+.activity-row .bar {
+  position: absolute;
+  height: 100%;
+  border-radius: 4px;
+  top: 0;
+  background-color: #69aaf5;
+}
+
+/* =============== COLORS =============== */
+.bg-green-300 { background-color: #63c76a; }
+.bg-red-300 { background-color: #f26c63; }
+.bg-blue-300 { background-color: #69aaf5; }
+.bg-gray-300 { background-color: #bfc5cc; }

@@ -1,21 +1,12 @@
+import React from "react";
+import ProjectCard from "./ProjectCard";
 
-const ProjectList = ({ projects, onSelect, selectedProjectId }) => {
-  return (
-    <div className="sidebar">
-      <h2>Progetti</h2>
-      <ul>
-        {projects.map((project) => (
-          <li
-            key={project.id}
-            onClick={() => onSelect(project.id)}
-            className={project.id === selectedProjectId ? "selected" : ""}
-          >
-            {project.name}
-          </li>
-        ))}
-      </ul>
-    </div>
-  );
-};
+const ProjectList = ({ projects }) => (
+  <div className="project-list">
+    {projects.map((project) => (
+      <ProjectCard key={project.id} project={project} />
+    ))}
+  </div>
+);
 
 export default ProjectList;
