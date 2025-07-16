@@ -10,7 +10,7 @@ const months = [
 const TimelineBar = ({ start, duration }) => {
   const startIndex = months.indexOf(start);
   const left = startIndex >= 0 ? startIndex * 20 : 0;
-  const width = (duration) * 20;
+  const width = (duration) * 4;
 
   return (
     <div className="bar-container">
